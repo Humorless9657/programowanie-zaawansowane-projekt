@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+    font-family: Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+img {
+    height: 1.8rem;
+}
+
+#content {
+    display: flex;
+}
