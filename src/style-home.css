@@ -119,6 +119,7 @@ li:hover {
     display: flex;
     gap: 10px;
     color: grey;
+    white-space: nowrap;
 }
 
 .list-item-icons {
