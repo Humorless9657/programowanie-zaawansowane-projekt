@@ -256,9 +256,11 @@ function createProjectPopup() {
     container.appendChild(button);
     content.appendChild(container);
 
-    const overlay = document.createElement('div');
-    overlay.id = 'overlay';
-    content.appendChild(overlay);
+    if (document.getElementById('overlay') == undefined) {
+        const overlay = document.createElement('div');
+        overlay.id = 'overlay';
+        content.appendChild(overlay);
+    }
 }
 
 function createItemPopup() {
@@ -298,11 +300,13 @@ function createItemPopup() {
     container.appendChild(divTitle);
     container.appendChild(divContent);
     container.appendChild(button);
-
-    content.appendChild(container)
-    const overlay = document.createElement('div');
-    overlay.id = 'overlay';
-    content.appendChild(overlay);
+    content.appendChild(container);
+    
+    if (document.getElementById('overlay') == undefined) {
+        const overlay = document.createElement('div');
+        overlay.id = 'overlay';
+        content.appendChild(overlay);
+    }
 }
 
 function editItemPopup() {
@@ -341,11 +345,13 @@ function editItemPopup() {
     container.appendChild(divTitle);
     container.appendChild(divContent);
     container.appendChild(button);
+    content.appendChild(container);
 
-    content.appendChild(container)
-    const overlay = document.createElement('div');
-    overlay.id = 'overlay';
-    content.appendChild(overlay);
+    if (document.getElementById('overlay') == undefined) {
+        const overlay = document.createElement('div');
+        overlay.id = 'overlay';
+        content.appendChild(overlay);
+    }
 }
 
 function selectItemPopup(title, desc, date, priority, createdAt) {
@@ -392,11 +398,13 @@ function selectItemPopup(title, desc, date, priority, createdAt) {
     container.appendChild(divPriority);
     container.appendChild(h4DateCreated);
     container.appendChild(divDateCreated);
+    content.appendChild(container);
 
-    content.appendChild(container)
-    const overlay = document.createElement('div');
-    overlay.id = 'overlay';
-    content.appendChild(overlay);
+    if (document.getElementById('overlay') == undefined) {
+        const overlay = document.createElement('div');
+        overlay.id = 'overlay';
+        content.appendChild(overlay);
+    }
 }
 
 // Creates text or date inputs
