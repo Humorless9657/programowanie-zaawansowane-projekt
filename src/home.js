@@ -19,9 +19,8 @@ function loginAccount() {
     loginFormEmail.classList = 'form-login-input';
     const loginFormEmailInput = document.createElement('input');
     loginFormEmailInput.id = 'form-login-email-input';
-    loginFormEmailInput.type = 'text';
+    loginFormEmailInput.type = 'email';
     loginFormEmailInput.placeholder = 'Enter your email';
-    loginFormEmailInput.required = true;
     const loginFormEmailImage = document.createElement('img');
     loginFormEmailImage.src = Mail;
     loginFormEmailImage.alt = 'email';
@@ -32,7 +31,6 @@ function loginAccount() {
     loginFormPasswordInput.id = 'form-login-password-input';
     loginFormPasswordInput.type = 'password';
     loginFormPasswordInput.placeholder = 'Enter your password';
-    loginFormPasswordInput.required = true;
     const loginFormPasswordImage = document.createElement('img');
     loginFormPasswordImage.src = Password;
     loginFormPasswordImage.alt = 'password';

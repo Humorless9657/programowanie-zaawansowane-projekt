@@ -40,6 +40,8 @@ leftContainer.style.display = 'none';
 rightContainer.style.display = 'none';
 registerContainer.style.display = 'none';
 
+const emailRegEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
 // Signing users up
 const signUpText = document.getElementById('form-login-signup-a');
 signUpText.addEventListener('click', () => {
@@ -53,21 +55,31 @@ signUpText.addEventListener('click', () => {
         const registerPassword = document.getElementById('form-register-password-input');
         const registerError = document.getElementById('form-register-error');
 
-        // Takes email and password. Automatically logs the user in.
-        createUserWithEmailAndPassword(auth, registerEmail.value, registerPassword.value)
-        .then((cred) => {
-            // Creates a new document inside the 'users' collection with uid as its id
-            setDoc(doc(db, 'users', cred.user.uid), {
+        if (registerEmail.value.length === 0) {
+            registerError.textContent = 'Email cannot be empty.';
+        } else if (emailRegEx.test(registerEmail.value) === false) {
+            registerError.textContent = 'Enter a valid email address.';
+        } else if (registerPassword.value.length === 0) {
+            registerError.textContent = 'Password cannot be empty.';
+        } else if (registerPassword.value.length < 6) {
+            registerError.textContent = 'Password must be at least 6 characters long.';
+        } else {
+            // Takes email and password. Automatically logs the user in.
+            createUserWithEmailAndPassword(auth, registerEmail.value, registerPassword.value)
+            .then((cred) => {
+                // Creates a new document inside the 'users' collection with uid as its id
+                setDoc(doc(db, 'users', cred.user.uid), {
+                })
+                // Empties inputs and hides the register container
+                registerEmail.value = '';
+                registerPassword.value = '';
+                registerError.textContent = '';
+                registerContainer.style.display = 'none';
             })
-            // Empties inputs and hides the register container
-            registerEmail.value = '';
-            registerPassword.value = '';
-            registerError.textContent = '';
-            registerContainer.style.display = 'none';
-        })
-        .catch((err) => {
-            registerError.textContent = err.message;
-        })
+            .catch((err) => {
+                registerError.textContent = err.message;
+            })
+        }
     }
 })
 
@@ -78,15 +90,25 @@ loginButton.addEventListener('click', () => {
     const loginPassword = document.getElementById('form-login-password-input');
     const loginError = document.getElementById('form-login-error');
 
-    signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
-     .then(() =>{
-        loginEmail.value = '';
-        loginPassword.value = '';
-        loginError.textContent = '';
-     })
-     .catch((err) => {
-        loginError.textContent = err.message;
-     })
+    if (loginEmail.value.length === 0) {
+        loginError.textContent = 'Email cannot be empty.';
+    } else if (emailRegEx.test(loginEmail.value) === false) {
+        loginError.textContent = 'Enter a valid email address.';
+    } else if (loginPassword.value.length === 0) {
+        loginError.textContent = 'Password cannot be empty.';
+    } else if (loginPassword.value.length < 6) {
+        loginError.textContent = 'Password must be at least 6 characters long.';
+    } else {
+        signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value)
+        .then(() =>{
+           loginEmail.value = '';
+           loginPassword.value = '';
+           loginError.textContent = '';
+        })
+        .catch((err) => {
+           loginError.textContent = err.message;
+        })
+    }
 })
 
 // Subscribes to auth changes. Fires off every time there's an authentication change.
