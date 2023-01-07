@@ -160,13 +160,15 @@ onAuthStateChanged(auth, (user) => {
         logoutButton.addEventListener('click', () => {
             signOut(auth)
             .then(() => {
-                leftContainer.style.display = 'none';
-                rightContainer.style.display = 'none';
-                loginContainer.style.display = 'block';
                 projectsArrayFirebase = [];
                 itemsArrayFirebase = [];
                 userId = undefined;
                 currentProjectId = undefined;
+                // since it contains functions that clear existing data from the page
+                refreshProjectsItems(currentProjectId, projectsArrayFirebase, itemsArrayFirebase);
+                leftContainer.style.display = 'none';
+                rightContainer.style.display = 'none';
+                loginContainer.style.display = 'block';
             })
             .catch((err) => {
                 console.log(err.message);
