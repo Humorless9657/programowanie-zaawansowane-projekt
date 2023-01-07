@@ -1,4 +1,4 @@
-# Aplikacja do zarzadzania lista projektow i zadan do wykonania
+# APLIKACJA DO ZARZĄDZANIA LISTĄ PROJEKTÓW I ZADAŃ
 
 ## Skorzystano z
 - JavaScript
@@ -6,22 +6,22 @@
 - Webpack
 - Firebase
 
-## Dzialanie programu
-- W panelu logowania uzytkownik loguje sie lub zaklada nowe konto. 
-- Aby dodac nowy projekt nalezy kliknac ikone `+` i podac nazwe.
-- Aby dodac nowe zadanie do wybranego projektu nalezy kliknac ikone `Add Item` i wypelnic wszystkie pola.
-- Wybrane projekty i zadania mozna usuwac klikajac ikone `kosza na smieci`.
-- Aby edytowac wybrane zadanie nalezy kliknac ikone `olowka`. Inputy zostana wypelnione istniejacymi danymi. Wprowadzone zmiany nalezy zatwierdzic przyciskiem `Update`.
-- Aby wyswietlic dokladne dane wybranego zadania nalezy na niego kliknac.
-- Aby oznaczyc zadanie jako wykonane mozna kliknac w checkbox. Widoczna zawartosc zadania zostanie przekreslona.
-- Wszystkie wykonane zadania mozna usunac przyciskiem `Clear Checked`.
-- Aby wyjsc z okien dodawania lub edycji nalezy kliknac poza obszar okna. 
+## Działanie programu
+- W panelu logowania użytkownik loguje się podając e-mail i hasło lub zakłada nowe konto.
+- Aby dodać nowy projekt należy kliknąć w ikonę ze znakiem `+` i podać jego nazwę.
+- Aby dodać nowe zadanie do wybranego projektu należny kliknąć w przycisk `Add Item` i wypełnić wszystkie pola tj. tytuł i opis.
+- Wybrane projekty i zadania można usuwać poprzez kliknięcie w ikonę `kosza`.
+- Aby edytować wybrane zadanie należy kliknąć w ikonę `ołówka`. Inputy wyświetlonego okna zostaną wypełnione istniejącymi danymi. Wprowadzone zmiany należy zatwierdzić przyciskiem `Update`.
+- Aby wyświetlić pełne dane wybranego zadania należy kliknąć w to zadanie.
+- Aby oznaczyć zadanie jako wykonane należy kliknąć w input typu `checkbox`. Widoczna zawartość zadania zostanie przekreślona. Operację można cofnąć w identyczny sposób. 
+- Wszystkie wykonane zadania można usunąć przyciskiem `Clear Checked`.
+- Aby wyjść z okien dt. dodawania lub edycji należy kliknąć poza obszar okna.
 
 ## Autentykacja i baza danych
 - Firebase Authentication
-- Firebase Cloud Firestore
+- Firebase Firestore Database
 
 ## Webpack
 - Instalacja webpack i project dependencies: `npm install`
-- Budowa plikow projektowych w trybie deweloperskim: `npm run build`
+- Budowa plików projektowych w trybie deweloperskim: `npm run build`
 - Uruchamienie projektu na webpack live server: `npm start`
